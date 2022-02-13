@@ -175,7 +175,7 @@ void send_messure_data(){
   char jsonChar[200];
   json.toCharArray(jsonChar, json.length()+1);
   // Publish JSON character array to MQTT topic
-  // mqtt_topic = "/Gasmads/Outdoor/07/json/";
+  // mqtt_topic = "/Gasmads/Hotairgun/";
 
   if( client.publish(mqtt_topic,jsonChar)){
     Serial.println(json); 
@@ -194,9 +194,9 @@ void reconnect() {
     // Attempt to connect
     Serial.println (mqtt_username);
     Serial.println (mqtt_password);
-    if (client.connect("Gasmads53", mqtt_username, mqtt_password)) {
+    if (client.connect("Gasmads99", mqtt_username, mqtt_password)) {
       Serial.println("connected");
-      client.subscribe("/Gasmads/Indoor/53/input/#");
+      client.subscribe("/Gasmads/Hotairgun/input/#");
       Serial.println("subscribe");
       //client.publish(mqtt_topic, "Så er vi igang");
     }
